@@ -71,7 +71,12 @@ else{
       if(err)
       console.log(err);
     });
-  
+
+    //copiamos el gitignore
+    fs.copyFile(path.join(__dirname,'..','.gitignore'),"./" + directorio + "/.gitignore",function(err){
+      if(err)
+      console.log(err);
+    });
   
     //renderizando package.json
     ejs.renderFile(path.join(__dirname,'..', 'template', 'package.ejs'), { autor: author , nombre: name, repourl: repo_url }, 

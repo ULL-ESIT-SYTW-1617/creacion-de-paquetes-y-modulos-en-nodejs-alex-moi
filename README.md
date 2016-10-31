@@ -37,6 +37,7 @@ gitbook-start-alex-moi-nitesh [opciones]
 Después de ejecutar el comando se genera una estructura de directorios para poder desarrollar un gitbook y publicarlo en github. 
 
 La estructura que genera es similar a la siguiente:
+
 ![enter image description here](https://i.gyazo.com/f8eaf0e19ccf15b6ac25a19f3b02d009.png)
 
 Una vez instalado y ejecutado, desde el directorio generado (Book en la imagen anterior) hacemos:
