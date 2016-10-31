@@ -14,7 +14,7 @@ npm install -g gitbook-start-alex-moi-nitesh
 npm install --save gitbook-start-alex-moi-nitesh
 ```
 
-Instalación ficheros
+Creación de directorio
 
 ```shell
 gitbook-start-alex-moi-nitesh -d [nombre directorio]
@@ -30,16 +30,19 @@ gitbook-start-alex-moi-nitesh [opciones]
 [opciones] 
 *    -a: Especificar el autor del gitbook
 *    -n: Especificar el nombre del gitbook
-*    -d: Especificar el nombre del directorio
+*    -d: Especificar el nombre del directorio(Obligatorio)
 *    -u: Especificar la url del repositorio git
 *    -h: Help (ayuda)
 
+Después de ejecutar el comando se genera una estructura de directorios para poder desarrollar un gitbook y publicarlo en github. 
 
-Una vez instalado y ejecutado, hacemos:
+La estructura que genera es similar a la siguiente:
+![enter image description here](https://i.gyazo.com/f8eaf0e19ccf15b6ac25a19f3b02d009.png)
+
+Una vez instalado y ejecutado, desde el directorio generado (Book en la imagen anterior) hacemos:
 
 ```shell
 npm install
-gitbook install
 ```
 
 Una vez completado los "ficheros.md" de nuestro book, para construirlo y publicarlo hacemos:
@@ -48,6 +51,8 @@ Una vez completado los "ficheros.md" de nuestro book, para construirlo y publica
 gulp build
 gulp deploy
 ```
+
+Donde gulp build nos generará un directorio gh-pages con el contenido del gitbook, es decir, los ficheros html creados a partir de los markdowns. Por otro lado, con gulp deploy, publicamos el contenido de dicho directorio en la rama gh-pages del repositorio git.
 
 Un ejemplo de la versión final del gitbook sería: [Ejemplo](https://alu0100782851.github.io/prueba/)
 
