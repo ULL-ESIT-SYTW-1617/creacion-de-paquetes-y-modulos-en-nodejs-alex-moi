@@ -3,7 +3,7 @@ var shell = require('gulp-shell');
 
 
 gulp.task('build', function() {
-  return gulp.src('').pipe(shell(['./scripts/generate-gitbook']));
+  return gulp.src('').pipe(shell(['gitbook install; ./scripts/generate-gitbook']));
 });
 
 gulp.task('deploy', function () {

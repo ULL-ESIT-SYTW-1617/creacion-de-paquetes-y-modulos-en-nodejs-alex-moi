@@ -5,7 +5,7 @@ var fs = require('fs-extended');
 var ejs = require("ejs");
 var path = require("path");
 
-var entra       = false;
+
 var author      = argv.a || '';
 var name        = argv.n || '';
 var directorio  = argv.d;
@@ -20,11 +20,8 @@ if(help){
               +"\n -n: Especificar el nombre del gitbook"
               +"\n -d: Especificar el nombre del directorio"
               +"\n -u: Especificar la url del repositorio git\n");
-  entra = true;
 }
-
-
-if(!entra){
+else{
   if(directorio){
     
     //creamos el directorio raiz
@@ -49,14 +46,14 @@ if(!entra){
   	
   	
   	//copiamos lo que hay en txt y lo ponemos en el txt creado
-    fs.copyDir(path.join(__dirname, '..', 'txt'), "./" + directorio + "/txt", function (err) {
+    fs.copyDir(path.join(__dirname, '..','template', 'txt'), "./" + directorio + "/txt", function (err) {
     	if (err)
         console.error(err)
   	});
     
     
     //copiamos lo que hay en scripts y lo ponemos en el spripts creado
-    fs.copyDir(path.join(__dirname, '..', 'scripts'), "./" + directorio + "/scripts", function (err) {
+    fs.copyDir(path.join(__dirname, '..','template', 'scripts'), "./" + directorio + "/scripts", function (err) {
     	if (err)
         console.error(err)
   	});
@@ -70,14 +67,14 @@ if(!entra){
   
   
     //copiamos el book
-    fs.copyFile(path.join(__dirname,'..','book.json'),"./" + directorio + "/book.json",function(err){
+    fs.copyFile(path.join(__dirname,'..','template','book.json'),"./" + directorio + "/book.json",function(err){
       if(err)
       console.log(err);
     });
   
   
     //renderizando package.json
-    ejs.renderFile(path.join(__dirname, '../template', 'package.ejs'), { autor: author , nombre: name, repourl: repo_url }, 
+    ejs.renderFile(path.join(__dirname,'..', 'template', 'package.ejs'), { autor: author , nombre: name, repourl: repo_url }, 
       function(err,data){
         if(err) {
             console.error(err);
